@@ -1,0 +1,21 @@
+api => api/
+
+/// teachers authenticaltion api 
+
+// get , post , update , delete
+1 => get : http://localhost:9000/api/teachers/
+2 => register : http://localhost:9000/api/teachers/register
+3 => login : http://localhost:9000/api/teachers/login
+4 => delete : http://localhost:9000/api/teachers/:id
+4 =>post / reset-pass : http://localhost:9000/api/teachers/reset
+reset password : username and email then set your password 
+
+
+2 / students authenticaltion 
+// get , post , update , delete , 
+
+get http://localhost:9000/api/students/
+register http://localhost:9000/api/students/register
+login http://localhost:9000/api/students/login
+delete http://localhost:9000/api/students/:id
+reser pass :  http://localhost:9000/api/students/reset => username and email 
