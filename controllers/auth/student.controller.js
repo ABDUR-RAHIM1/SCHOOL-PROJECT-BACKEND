@@ -25,7 +25,7 @@ const registerStudent = async (req, res) => {
     try {
         const newTeacher = await studentAuth.create({ userName, email, password: hashPassword, condition })
         res.status(201).json({
-            message: "teachers Account Created successfuly",
+            message: "student Account Created successfully",
             success: true,
             teacher: newTeacher
         })
@@ -39,14 +39,14 @@ const loginStudent = async (req, res) => {
     const { email, password } = req.body;
     try {
         const isEmail = await studentAuth.findOne({ email })
-        if (isEmail) {
+        if (isEmail !== null && isEmail) {
             const validEmail = await bcrypt.compare(password, isEmail.password)
-            console.log(isEmail)
+            
             const { password: hashedPassword, ...studentsInfo } = isEmail.toObject();
             if (validEmail) {
                 res.status(200).json({
-                    message: "Login Successfull",
-                    students: studentsInfo
+                    message: " student Login successfully",
+                    loginInfo: studentsInfo
                 })
             } else {
                 res.status(404).json({
@@ -97,7 +97,7 @@ const resetStudent = async (req, res) => {
                     password: hashedPassword
                 }
             }, { new: true })
-            res.status(200).json({ message: "password reset success" })
+            res.status(200).json({ message: "password reset successfully" })
         } else {
             res.status(400).json({
                 message: "provide valid username and email"

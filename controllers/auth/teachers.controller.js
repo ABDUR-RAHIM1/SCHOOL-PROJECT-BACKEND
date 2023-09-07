@@ -26,9 +26,8 @@ const registerTechers = async (req, res) => {
     try {
         const newTeacher = await teachersAuth.create({ userName, email, password: hashPassword, condition })
         res.status(201).json({
-            message: "teachers Account Created successfuly",
+            message: "teachers Account Created successfully",
             success: true,
-            teacher: newTeacher
         })
     } catch (error) {
         globarError(res, error.message)
@@ -46,8 +45,8 @@ const loginTechers = async (req, res) => {
             const { password: hashedPassword, ...teacherInfo } = isEmail.toObject();
             if (validEmail) {
                 res.status(200).json({
-                    message: "Login Successfull",
-                    teacher: teacherInfo
+                    message: "teacher Login successfully",
+                    loginInfo: teacherInfo
                 })
             } else {
                 res.status(404).json({
@@ -103,7 +102,7 @@ const resetPassword = async (req, res) => {
                     password : hashedPassword
                  }
             },{new : true})
-            res.status(200).json({message :"password reset success"})
+            res.status(200).json({message :"password reset successfully"})
          }else{
             res.status(400).json({
                 message :"provide valid username and email"

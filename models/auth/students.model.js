@@ -15,6 +15,10 @@ const studentAuthSchema = mongoose.Schema({
         trim: true,
         required: [true, "password is required"]
     },
+    role : {
+        type : String,
+        default : "student"
+    },
     date: {
         type: Date,
         default: Date.now
